@@ -1,0 +1,17 @@
+name: deep_learning_pm25
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - ipykernel
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - pyarrow
+  - psutil
+  - pytorch
+  - pip
