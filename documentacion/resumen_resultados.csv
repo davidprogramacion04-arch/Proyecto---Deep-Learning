@@ -1,0 +1,7 @@
+Etapa,Modelo,RMSE,MAE,R2,Observación
+Fase 0,Persistencia,7.5,5.0,0.65,Baseline simple
+Fase 1,RF + MissForest,7.1,4.8,0.7,Mejora con imputación
+Fase 2,RF + MissForest + grafo,7.0,4.7,0.688,Información espacial
+Fase B,LSTM + MissForest + grafo,6.398,4.439,0.7401,Mejor baseline temporal
+STN,Bogotá FONTIBÓN,5.991,4.209,0.7722,Modelo final STN
+STN,Beijing-paper,19.04,11.13,0.937,Referencia del paper
