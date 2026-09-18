@@ -32,6 +32,13 @@ La intención fue evaluar si la información espacial y la imputación multivari
 | Bogotá FONTIBÓN - STN | 5.991 | 4.209 | 0.7722 | Resultado del STN sobre la estación de estudio |
 | Bogotá FONTIBÓN - Persistencia | ~6.34 | ~4.39 | ~0.74 | Baseline de comparación |
 
+### Nueva etapa: STN con imputación vecinal
+
+- Se preparó una base dedicada de FONTIBÓN en formato horario para el STN usando la imputación por vecindad y el grafo de estaciones.
+- La base nueva se guarda como `fontibon_vecinal_stn_ready.parquet` y se almacena fuera de GitHub para evitar peso excesivo en el repo.
+- La configuración revisada del STN quedó definida con la mejor configuración encontrada en la búsqueda previa y se deja lista para ejecución en un cuaderno independiente.
+- Esta base y su entrenamiento quedan fuera del repositorio principal y se gestionan desde la carpeta de Drive del proyecto.
+
 ## Interpretación
 
 - El STN en Bogotá logra un rendimiento claramente competitivo frente a la persistencia y al menos comparable a varias estrategias de Machine Learning.

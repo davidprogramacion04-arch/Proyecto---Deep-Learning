@@ -1,2 +1,12 @@
 # Metadatos de archivos descargados en Windows
 *:Zone.Identifier
+
+# Archivos pesados del proyecto: fuera de GitHub
+modelos y bd/bogota_calidad_aire_raw.parquet
+modelos y bd/fontibon_vecinal_stn_ready.parquet
+modelos y bd/ckpt_beijing.pt
+modelos y bd/ckpt_bogota_stn.pt
+
+# Editor / entorno local
+.vscode/
+.venv/
