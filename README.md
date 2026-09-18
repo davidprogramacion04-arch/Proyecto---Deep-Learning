@@ -31,6 +31,12 @@ Enlace de la carpeta compartida del proyecto:
 
 - [Google Drive - Datos y modelos del proyecto](https://drive.google.com/drive/folders/1Ty6nDnn9KBttHslSTWBLYe81qX1F0Nsy?usp=drive_link)
 
+Resultado final del STN vecinal reportado en este repo:
+
+- RMSE = 6.739
+- MAE = 4.685
+- R² = 0.7094
+
 ## Qué sí va a GitHub
 
 Los notebooks, PDFs, tablas y documentación del proyecto quedan en el repositorio, incluyendo:

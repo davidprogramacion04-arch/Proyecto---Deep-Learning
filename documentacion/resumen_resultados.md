@@ -38,6 +38,12 @@ La intención fue evaluar si la información espacial y la imputación multivari
 - La base nueva se guarda como `fontibon_vecinal_stn_ready.parquet` y se almacena fuera de GitHub para evitar peso excesivo en el repo.
 - La configuración revisada del STN quedó definida con la mejor configuración encontrada en la búsqueda previa y se deja lista para ejecución en un cuaderno independiente.
 - Esta base y su entrenamiento quedan fuera del repositorio principal y se gestionan desde la carpeta de Drive del proyecto.
+- Resultado final reportado para el STN vecinal sobre la serie de FONTIBÓN: RMSE = 6.739, MAE = 4.685, R² = 0.7094.
+
+### Enlace de archivos pesados en Drive
+
+- Proyecto Drive: https://drive.google.com/drive/folders/1Ty6nDnn9KBttHslSTWBLYe81qX1F0Nsy?usp=drive_link
+- Archivos alojados allí: `bogota_calidad_aire_raw.parquet`, `fontibon_vecinal_stn_ready.parquet`, `ckpt_beijing.pt`, `ckpt_bogota_stn.pt`.
 
 ## Interpretación
 
