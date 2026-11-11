@@ -127,32 +127,41 @@ def metricas(y, p):
 
 
 def block_bootstrap_delta(e_a, e_b, block=24, n_boot=2000, seed=0, stat="rmse"):
-    """Diferencia pareada stat(A)-stat(B) sobre las MISMAS horas, remuestreando bloques de `block` horas
-    (conserva la autocorrelación). Devuelve (delta, IC95_inf, IC95_sup, prop_boot_<=0 / prop_boot_>=0 mínima*2)."""
-    e_a, e_b = np.asarray(e_a, float), np.asarray(e_b, float)
-    if e_a.ndim != 1 or e_b.ndim != 1:
-        raise ValueError("e_a y e_b deben ser vectores unidimensionales")
-    if e_a.shape != e_b.shape:
-        raise ValueError("e_a y e_b deben tener la misma longitud para la comparación pareada")
-    if block < 1 or len(e_a) < block:
-        raise ValueError("block debe ser positivo y no mayor que el número de observaciones")
-    if n_boot < 1:
-        raise ValueError("n_boot debe ser al menos 1")
+    """Bootstrap pareado por bloques, agregando primero la perdida de cada bloque."""
+    e_a, e_b = np.asarray(e_a, dtype=float), np.asarray(e_b, dtype=float)
+    if e_a.ndim != 1 or e_b.ndim != 1 or e_a.shape != e_b.shape:
+        raise ValueError("Los errores pareados deben ser vectores de igual longitud")
+    n = len(e_a)
+    if block < 1 or n < block or n_boot < 1:
+        raise ValueError("Se requiere 1 <= block <= n y n_boot >= 1")
+    if stat == "rmse":
+        loss_a, loss_b = e_a * e_a, e_b * e_b
+        summarize = lambda total: np.sqrt(total / n)
+    elif stat == "mae":
+        loss_a, loss_b = np.abs(e_a), np.abs(e_b)
+        summarize = lambda total: total / n
+    else:
+        raise ValueError("stat debe ser 'rmse' o 'mae'")
 
-    n = len(e_a); nb = int(np.ceil(n / block))
-    f = (lambda e: np.sqrt(np.mean(e ** 2, axis=-1))) if stat == "rmse" else (lambda e: np.mean(np.abs(e), axis=-1))
+    # Una suma prefija permite puntuar cada bloque sin indexar todas las horas
+    # en cada replica. Solo se remuestrean las sumas de bloques.
+    prefix_a = np.concatenate(([0.0], np.cumsum(loss_a)))
+    prefix_b = np.concatenate(([0.0], np.cumsum(loss_b)))
+    full_a = prefix_a[block:] - prefix_a[:-block]
+    full_b = prefix_b[block:] - prefix_b[:-block]
+    n_full, tail = divmod(n, block)
+    n_blocks = n_full + bool(tail)
     rng = np.random.default_rng(seed)
-    starts = rng.integers(0, n - block + 1, size=(n_boot, nb))
-    d = np.empty(n_boot, dtype=float)
-    offsets = np.arange(block)[None, None, :]
-    # Limita la memoria temporal: evita materializar (n_boot, n) índices y
-    # dos copias de errores para todas las réplicas simultáneamente.
-    chunk_size = max(1, min(64, n_boot))
-    for inicio in range(0, n_boot, chunk_size):
-        fin = min(inicio + chunk_size, n_boot)
-        idx = (starts[inicio:fin, :, None] + offsets).reshape(fin - inicio, -1)[:, :n]
-        d[inicio:fin] = f(e_a[idx]) - f(e_b[idx])
-    obs = float(f(e_a) - f(e_b))
-    lo, hi = np.percentile(d, [2.5, 97.5])
-    p = float(2 * min((d <= 0).mean(), (d >= 0).mean()))
-    return obs, float(lo), float(hi), p
+    starts = rng.integers(0, n - block + 1, size=(n_boot, n_blocks))
+    total_a = full_a[starts[:, :n_full]].sum(axis=1)
+    total_b = full_b[starts[:, :n_full]].sum(axis=1)
+    if tail:
+        tail_a = prefix_a[tail:] - prefix_a[:-tail]
+        tail_b = prefix_b[tail:] - prefix_b[:-tail]
+        total_a += tail_a[starts[:, n_full]]
+        total_b += tail_b[starts[:, n_full]]
+    delta_boot = summarize(total_a) - summarize(total_b)
+    observed = float(summarize(loss_a.sum()) - summarize(loss_b.sum()))
+    lo, hi = np.percentile(delta_boot, [2.5, 97.5])
+    p = float(2 * min((delta_boot <= 0).mean(), (delta_boot >= 0).mean()))
+    return observed, float(lo), float(hi), p
