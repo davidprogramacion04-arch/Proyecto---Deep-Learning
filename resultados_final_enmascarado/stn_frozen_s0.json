@@ -1,0 +1,348 @@
+{
+ "nombre": "stn_frozen",
+ "semilla": 0,
+ "RMSE": 6.029200553894043,
+ "MAE": 4.3311309814453125,
+ "R2": 0.7692182660102844,
+ "n": 8547,
+ "mejor_epoca": 39,
+ "epocas": 40,
+ "seg_entrenamiento": 724.2,
+ "seg_inferencia_test": 0.39,
+ "loss_masking": true,
+ "mask_protocol": "observed_targets_only_v1",
+ "info": {
+  "regimen": "frozen",
+  "tensores_modelo": 165,
+  "tensores_cargados": 163,
+  "params_totales": 1216385,
+  "params_cargados": 1209473,
+  "params_entrenables": 6912,
+  "no_cargados": [
+   "enc_embedding.value_embedding.tokenConv.weight",
+   "dec_embedding.value_embedding.tokenConv.weight"
+  ]
+ },
+ "historia": [
+  {
+   "epoca": 1,
+   "train_mse": 0.051639976940476305,
+   "val_mse": 0.03012559935450554,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.06093766521020182
+  },
+  {
+   "epoca": 2,
+   "train_mse": 0.028080689868029758,
+   "val_mse": 0.021954547613859177,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.02934482975902591
+  },
+  {
+   "epoca": 3,
+   "train_mse": 0.02182418710490211,
+   "val_mse": 0.01780269853770733,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.030607109335883998
+  },
+  {
+   "epoca": 4,
+   "train_mse": 0.019318690373871465,
+   "val_mse": 0.016639502719044685,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.02897476182936957
+  },
+  {
+   "epoca": 5,
+   "train_mse": 0.017991077293245793,
+   "val_mse": 0.015874629840254784,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.02614761312618761
+  },
+  {
+   "epoca": 6,
+   "train_mse": 0.01725751329765792,
+   "val_mse": 0.015258410945534706,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.025829171916775966
+  },
+  {
+   "epoca": 7,
+   "train_mse": 0.016602646489755037,
+   "val_mse": 0.014884629286825657,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.022366314136534626
+  },
+  {
+   "epoca": 8,
+   "train_mse": 0.015965169180359444,
+   "val_mse": 0.014448518864810467,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.022674452022292308
+  },
+  {
+   "epoca": 9,
+   "train_mse": 0.015549219103212011,
+   "val_mse": 0.014162257313728333,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.021174685308864648
+  },
+  {
+   "epoca": 10,
+   "train_mse": 0.015236629407532168,
+   "val_mse": 0.013966495171189308,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01947541595729442
+  },
+  {
+   "epoca": 11,
+   "train_mse": 0.014964427631654075,
+   "val_mse": 0.013826468959450722,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.02128257486651865
+  },
+  {
+   "epoca": 12,
+   "train_mse": 0.014719033053344861,
+   "val_mse": 0.013627729378640652,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.019948959280689516
+  },
+  {
+   "epoca": 13,
+   "train_mse": 0.014597531137765398,
+   "val_mse": 0.01352133508771658,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.018824996459760664
+  },
+  {
+   "epoca": 14,
+   "train_mse": 0.014307409590348846,
+   "val_mse": 0.013401255942881107,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01884154766480652
+  },
+  {
+   "epoca": 15,
+   "train_mse": 0.014153790862663933,
+   "val_mse": 0.013371930457651615,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.018496977650838135
+  },
+  {
+   "epoca": 16,
+   "train_mse": 0.014051989725960664,
+   "val_mse": 0.013261397369205952,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.017898138916652657
+  },
+  {
+   "epoca": 17,
+   "train_mse": 0.013914297354425575,
+   "val_mse": 0.013251867145299911,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.017919043678805445
+  },
+  {
+   "epoca": 18,
+   "train_mse": 0.013794885994960347,
+   "val_mse": 0.01318962499499321,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.018016331872579776
+  },
+  {
+   "epoca": 19,
+   "train_mse": 0.013729386973408503,
+   "val_mse": 0.013085970655083656,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01755409285002983
+  },
+  {
+   "epoca": 20,
+   "train_mse": 0.013600254571346875,
+   "val_mse": 0.013063227757811546,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.017373404747090523
+  },
+  {
+   "epoca": 21,
+   "train_mse": 0.01356996803201484,
+   "val_mse": 0.013041110709309578,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.017626417790394103
+  },
+  {
+   "epoca": 22,
+   "train_mse": 0.013470368655578156,
+   "val_mse": 0.012997414916753769,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.017286459175760254
+  },
+  {
+   "epoca": 23,
+   "train_mse": 0.013491659879195322,
+   "val_mse": 0.012955344282090664,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01745142319672278
+  },
+  {
+   "epoca": 24,
+   "train_mse": 0.013378958465848434,
+   "val_mse": 0.012921762652695179,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016933527434127627
+  },
+  {
+   "epoca": 25,
+   "train_mse": 0.013294232922871381,
+   "val_mse": 0.012871021404862404,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016506683559328862
+  },
+  {
+   "epoca": 26,
+   "train_mse": 0.01331074290318651,
+   "val_mse": 0.012814275920391083,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016867354686483437
+  },
+  {
+   "epoca": 27,
+   "train_mse": 0.013177170077370457,
+   "val_mse": 0.01282762736082077,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016790648219581792
+  },
+  {
+   "epoca": 28,
+   "train_mse": 0.013173571630364153,
+   "val_mse": 0.01287503819912672,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016752178334908722
+  },
+  {
+   "epoca": 29,
+   "train_mse": 0.013148701546207958,
+   "val_mse": 0.01275601051747799,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.015299261465449543
+  },
+  {
+   "epoca": 30,
+   "train_mse": 0.013002957927753354,
+   "val_mse": 0.012784258462488651,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016070644739584555
+  },
+  {
+   "epoca": 31,
+   "train_mse": 0.012992543827773444,
+   "val_mse": 0.012764427810907364,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01627043210740747
+  },
+  {
+   "epoca": 32,
+   "train_mse": 0.01296543263557525,
+   "val_mse": 0.012734330259263515,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.017102333004860318
+  },
+  {
+   "epoca": 33,
+   "train_mse": 0.012908049956448923,
+   "val_mse": 0.012673851102590561,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01641323939286943
+  },
+  {
+   "epoca": 34,
+   "train_mse": 0.012928345679095524,
+   "val_mse": 0.012658045627176762,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016318301599412312
+  },
+  {
+   "epoca": 35,
+   "train_mse": 0.012856859344803495,
+   "val_mse": 0.012682885862886906,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016226757254496852
+  },
+  {
+   "epoca": 36,
+   "train_mse": 0.012922399059225495,
+   "val_mse": 0.012612270191311836,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016237833693956025
+  },
+  {
+   "epoca": 37,
+   "train_mse": 0.012859593215539275,
+   "val_mse": 0.012603248469531536,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016315139957626196
+  },
+  {
+   "epoca": 38,
+   "train_mse": 0.012800629566330542,
+   "val_mse": 0.012584065087139606,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.01567783544848826
+  },
+  {
+   "epoca": 39,
+   "train_mse": 0.012806746802994541,
+   "val_mse": 0.012539316900074482,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.016142795662420214
+  },
+  {
+   "epoca": 40,
+   "train_mse": 0.012664108342184583,
+   "val_mse": 0.01259915716946125,
+   "n_train_obj": 27784,
+   "n_val_obj": 3181,
+   "grad_norm": 0.015477904859121745
+  }
+ ]
+}
